@@ -11,8 +11,8 @@ How to use the script:
 >    		                cidrcheck.py  -i 10.32.55.12/17
 > 				FIRST IP     : 10.32.0.0
 > 				LAST  IP     : 10.32.127.255
-> 				NMASK IP  : 255.255.128.0
-> 				TOTAL IPs  : 32768
+> 				NMASK IP     : 255.255.128.0
+> 				TOTAL IPs    : 32768
 
   2. with -i and -c switch, the script checks if the given ip in -c belong to the range provided in -i
       ex:
@@ -20,8 +20,8 @@ How to use the script:
 > 				 cidrcheck.py  -i 10.32.55.12/17 -c 10.28.55.12
 > 				 FIRST IP     : 10.32.0.0
 > 				 LAST  IP     : 10.32.127.255
-> 				 NMASK IP  : 255.255.128.0
-> 				 TOTAL IPs  : 32768
-> 				 IP does not belong to the subnet        IP does not belong to the subnet
+> 				 NMASK IP     : 255.255.128.0
+> 				 TOTAL IPs    : 32768
+> 				 IP does not belong to the subnet.
 
 				 
