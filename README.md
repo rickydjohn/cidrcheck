@@ -8,7 +8,7 @@ How to use the script:
   This script uses two switches (-i, -c)
   1. with -i switch, the script returns the range and number of IPs in the subnet.
 
->    		    cidrcheck.py  -i 10.32.55.12/17
+>    		                cidrcheck.py  -i 10.32.55.12/17
 > 				FIRST IP     : 10.32.0.0
 > 				LAST  IP     : 10.32.127.255
 > 				NMASK IP  : 255.255.128.0
