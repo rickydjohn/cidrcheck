@@ -9,20 +9,20 @@ class ipconvert:
         self.cidr = cidr
         self.ip = None
         self.notation = None
-        self.mask = None
+        self.nmsk = None
         self.fip = None
         self.lip = None
 
-    def f_lastip(self, msk, fip):
+    def f_lastip(self):
         lip = []
-        for i,v in enumerate(msk):
-            lip.append(255 - (msk[i] - fip[i]))
+        for i,v in enumerate(self.nmsk):
+            lip.append(255 - (self.nmsk[i] - self.fip[i]))
         return lip
     
-    def f_firstip(self, nmsk):
+    def f_firstip(self):
         fip = []
-        for i,v in enumerate(nmsk):
-            fip.append(nmsk[i] & self.ip[i])
+        for i,v in enumerate(self.nmsk):
+            fip.append(self.nmsk[i] & self.ip[i])
         return fip
     
     def netmask(self):
@@ -50,16 +50,13 @@ class ipconvert:
         ips = self.cidr.split("/")
         self.ip = map(int, ips[0].split("."))
         self.notation = int(ips[1])
-        nmsk = self.netmask()
-        self.mask = nmsk
-        fip = self.f_firstip(nmsk)
-        self.fip = fip
-        lip = self.f_lastip(nmsk, fip)
-        self.lip = lip
+        self.nmsk  = self.netmask()
+        self.fip = self.f_firstip()
+        self.lip = self.f_lastip()
         return {
-                "fip": ".".join(map(str, fip)),
-                "lip": ".".join(map(str, lip)),
-                "nmsk": ".".join(map(str, nmsk)),
+                "fip": ".".join(map(str, self.fip)),
+                "lip": ".".join(map(str, self.lip)),
+                "nmsk": ".".join(map(str, self.nmsk)),
                 "total": 2**(32 - self.notation)
                 }
     
