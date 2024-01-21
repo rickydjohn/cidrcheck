@@ -3,12 +3,10 @@ class cidr:
         self.cidr = cidr
         self.validate = ip
 
-
     def iptoint(self, ip: list):
         if len(ip) != 4:
             raise("incorrect ip")
         return ip[0] << 24 | ip[1] << 16 | ip[2] << 8 | ip[3]
-
 
     def intToIp(self, ip:int):
         ip_address = ""
@@ -27,7 +25,6 @@ class cidr:
             cidr[i] = 255
         for j in range(1, remain+1):
             cidr[used] += 1 << (8 - j)
-
         return self.iptoint(cidr)
 
     def build_cidr(self):
@@ -53,12 +50,8 @@ class cidr:
             else:
                 print(f"ERROR: %s does not belongs to above subnet" %(self.intToIp(check_ip)))
 
-
-
-
 if __name__ == "__main__":
     import sys
-
     if len(sys.argv) == 2:
         cidr(sys.argv[1]).build_cidr()
     elif len(sys.argv) == 3:
